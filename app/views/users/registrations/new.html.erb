@@ -1,0 +1,25 @@
+<div class="hero-unit span10">
+<h2 align="center">Sign up</h2><hr>
+
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
+
+		  <div class="form-inputs">
+			    <div class="span5">
+			    	<%= f.input :name, :required => true, :autofocus => true %>
+			  	    <%= f.input :phoneno, :required => true, :autofocus => true %>
+			        <%= f.input :address, :required => true, :autofocus => true, :input_html => { :rows => 5, :cols => 40 } %>
+			    </div>
+			    <div class="span5">
+			    	<%= f.input :email, :required => true, :autofocus => true %>
+				    <%= f.input :password, :required => true %>
+				    <%= f.input :password_confirmation, :required => true %>
+	                <%= f.file_field :photo %>
+			        <%= f.button :submit, "Sign up", :class => "btn btn-xlarge btn-success" %>
+			    </div>
+		  </div>
+    <% end %>
+         <div class="span5"><br>
+             <%= render "users/shared/links" %>
+         </div>
+</div>

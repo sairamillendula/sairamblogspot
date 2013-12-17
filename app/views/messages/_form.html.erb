@@ -1,0 +1,29 @@
+<%= form_for(@message, :remote => true, :class => "offset2") do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area(:body, :rows => "2", :class => "span6") %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :to_user_id %>
+  </div>
+  <div class="field">
+  <%= f.hidden_field(:timestamp, :value => Time.now.strftime("%I:%M:%S %p %b %d, %Y")) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Post", :class => "btn btn-success btn-xlarge"%>
+  </div>
+<% end %>

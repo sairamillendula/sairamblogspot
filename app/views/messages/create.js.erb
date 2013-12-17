@@ -1,0 +1,2 @@
+$("#trh").after("<%= escape_javascript(render :partial => "messages/msgs", :locals => {:message => @message}) %>");
+document.getElementById("message_body").value = "";
